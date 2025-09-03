@@ -23,7 +23,7 @@ int eval(char* exp){
                 int b=values[vTop--],a=values[vTop--];
                 values[++vTop]=applyOp(a,b,ops[oTop--]);
             }
-            oTop--; // pop '('
+            oTop--;
         } else {
             while(oTop!=-1 && precedence(ops[oTop])>=precedence(exp[i])){
                 int b=values[vTop--],a=values[vTop--];
@@ -44,4 +44,5 @@ int main(int argc,char* argv[]){
     printf("%d\n", eval(argv[1]));
     return 0;
 }
+
 
